@@ -7,6 +7,43 @@
           <script src="https://cdn.tailwindcss.com"></script>
         </head>
         <body>
-          <div><header class="flex flex-row justify-center gap-4 m-0 p-6 relative shadow-lg bg-white text-black"><div class="flex flex-row gap-4"><div class="relative"><a href="location1.html">Location</a><div class="absolute top-full right-0 w-48 bg-white text-black shadow-lg p-4 rounded-lg z-40 hidden"></div></div></div><div><a href="index.html" class="text-2xl cursor-pointer inline-block"><p>Burger Barn Breakfast</p></a></div><div class="flex flex-row gap-4"><div class="relative"><a href="menu1.html">Menu</a><div class="absolute top-full right-0 w-48 bg-white shadow-lg p-4 rounded-lg z-40 hidden"></div></div><div class="relative"><a href="services.html">Services</a><div class="absolute top-full right-0 w-48 bg-white shadow-lg p-4 rounded-lg z-40 hidden"><p class="text-lg text-gray-700 cursor-pointer hover:underline">Catering</p><p class="text-lg text-gray-700 cursor-pointer hover:underline">Food Trailer</p></div></div></div></header><div class="text-center my-4"><p class="text-xl font-bold">Menu</p></div><div class="flex justify-center"><div class="container max-w-screen-md mx-auto"><div class="mb-6"><div class="flex justify-start mb-2"><p class="text-lg font-semibold">Sandwich</p></div><div class="relative w-full flex items-center mb-2"><hr class="w-full border-t border-gray-400"/></div><div class="flex flex-row justify-between py-2"><div><p class="text-md font-medium">Pork Sandwichs</p><p class="text-sm text-gray-600">This is our pork sandwich</p></div><p class="text-lg">$12.99</p></div></div></div></div></div>
+          <div><header class="flex flex-row justify-center gap-4 m-0 p-6 relative shadow-lg bg-white text-black"><div class="flex flex-row gap-4"><div class="relative"><a href="location1.html">Location</a><div class="absolute top-full right-0 w-48 bg-white text-black shadow-lg p-4 rounded-lg z-40 hidden dropdown-menu"></div></div></div><div><a href="index.html" class="text-2xl cursor-pointer inline-block dropdown-link"><p>Burger Barn Breakfast</p></a></div><div class="flex flex-row gap-4"><div class="relative"><a href="menu1.html">Menu</a><div class="absolute top-full right-0 w-48 bg-white shadow-lg p-4 rounded-lg z-40 hidden dropdown-menu"></div></div><div class="relative"><a href="services.html">Services</a><div class="absolute top-full right-0 w-48 bg-white shadow-lg p-4 rounded-lg z-40 hidden dropdown-menu"><a href="/services/Catering">Catering</a><a href="/services/Food Trailer">Food Trailer</a></div></div></div></header><div class="text-center my-4"><p class="text-xl font-bold">Menu</p></div><div class="flex justify-center"><div class="container max-w-screen-md mx-auto"><div class="mb-6"><div class="flex justify-start mb-2"><p class="text-lg font-semibold">Sandwich</p></div><div class="relative w-full flex items-center mb-2"><hr class="w-full border-t border-gray-400"/></div><div class="flex flex-row justify-between py-2"><div><p class="text-md font-medium">Pork Sandwichs</p><p class="text-sm text-gray-600">This is our pork sandwich</p></div><p class="text-lg">$12.99</p></div></div></div></div></div>
+          <script>
+                const dropdownLinks = document.querySelectorAll('.dropdown-link');
+const dropdownMenus = document.querySelectorAll('.dropdown-menu');
+
+// Function to show a dropdown
+function showDropdown(menu) {
+    menu.classList.remove('hidden');
+}
+
+// Function to hide a dropdown
+function hideDropdown(menu) {
+    menu.classList.add('hidden');
+}
+
+// Attach event listeners to each dropdown link
+dropdownLinks.forEach((link, index) => {
+    const menu = dropdownMenus[index];
+
+    // Show dropdown on hover
+    link.addEventListener('mouseenter', () => showDropdown(menu));
+
+    // Keep dropdown visible when hovered
+    menu.addEventListener('mouseenter', () => showDropdown(menu));
+
+    // Hide dropdown when mouse leaves the link
+    link.addEventListener('mouseleave', () => {
+        setTimeout(() => {
+            if (!menu.matches(':hover')) {
+                hideDropdown(menu);
+            }
+        }, 200);
+    });
+
+    // Hide dropdown when mouse leaves the menu
+    menu.addEventListener('mouseleave', () => hideDropdown(menu));
+});
+            </script>
         </body>
         </html>
