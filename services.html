@@ -44,6 +44,20 @@ dropdownLinks.forEach((link, index) => {
     // Hide dropdown when mouse leaves the menu
     menu.addEventListener('mouseleave', () => hideDropdown(menu));
 });
+const hamburgerButton = document.getElementById("hamburgerButton");
+const closeButton = document.getElementById('close')
+  const sidebar = document.getElementById("sidebar");
+  const bar1 = document.getElementById("bar1");
+  const bar2 = document.getElementById("bar2");
+  const bar3 = document.getElementById("bar3");
+
+  hamburgerButton.addEventListener("click", function () {
+    // Toggle sidebar visibility by adding/removing the translate-x-full class
+    sidebar.classList.toggle("translate-x-full");
+  });
+  closeButton.addEventListener("click", function () {
+    sidebar.classList.toggle("translate-x-full");
+  })
             </script>
         </body>
         </html>
